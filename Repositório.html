@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="shortcut icon" href="Assets/Símbolo Escoteiro.png" type="image/x-icon" />
+    <title>Repertório de Músicas Escoteiras</title>
+</head>
+<body>
+<header class="Cabecalho">
+    <a class="Atalho_do_Cabecalho" href="index.html">Home</a>
+    <a class="Atalho_do_Cabecalho" href="Repositório.html">Repertório</a>
+    <span id="Botao"><button class="Modo" onclick="ModoEscuro()"><img src="Assets/Lua.png"></button></span>
+    <button style='cursor: pointer; width: 0.5%; height: 1%;' onclick='alert("Eu sei.. as cores do modo escuro são horríveis. Desculpe :P")'></button>
+</header>
+<main>
+<div class="AreaTexto1">
+    <label for="titulo"><p class='T'><b>Título:</b></p></label>
+    <input type="text" class="InputTexto" id="titulo" placeholder="Escreva o título da sua musica..." value="Editor de Músicas Locais">
+    <label for="areatexto"><p class='T'><b>Corpo:</b></p></label>
+<textarea class="AreaTexto2" id="areatexto" placeholder="Escreva uma música..." autofocus="true">Escreva uma Música! Ela será visível apenas para você, e estará salva até você exclui-la. Caso queira mais informações, acesse o meu GitHub. Lá, todas as informações de como editar estarão em um arquivo chamado: "ComoUsar.txt". &lt;a href='https://github.com/VerdyMint/repertorio'&gt;Github&lt;/a&gt;</textarea>
+    <label for="contribuidor"><p class='T'><b>Contribuidor:</b></p></label>
+    <input type="text" class="InputTexto" id="contribuidor" placeholder="Escreva seu nome..." value="lucasayrosofronza@gmail.com">
+</div>
+<div class="BotoesEditar">
+    <button type="submit" class="Adicionar" onclick="Escrever()">Adicionar Localmente</button>
+    <button type="button" class="Adicionar" onclick="EscreverP()">Guia</button>
+    <button type="button" class="Adicionar" onclick="Excluir('mlocal')">Excluir sua música</button>
+</div>
+<hr>
+<div class="MusicaLocal"><p id="musicalocal"><noscript><p class="Pri_Texto" style="font-size: 2rem;"><b>Esse Site Usa JavaScript! TODAS as funções envolvendo as músicas locais não funcionarão!</b></p></noscript></p></div>
+<hr>
+<div class="Musica">
+    <h2 class="N"> Melancia Gorda Gorda Gorda</h2>
+    <p class="T"> <b>Peça para todos repetirem as frases da música. Realize movimentos para descrever o que a melancia aprendeu.</b></p><br>
+    <p class="T">Uma Melancia Gorda Gorda Gorda</p>
+    <p class="T">Que queria o mundo conquistar</p>
+    <p class="T">E para isso conseguir,</p>
+    <p class="T"> Pá, Pá, aprendeu a andar</p>
+    <p class="T">Uma Melancia Gorda Gorda Gorda</p>
+    <p class="T">Que queria o mundo conquistar</p>
+    <p class="T">E para isso conseguir,</p>
+    <p class="T"> Splash, Splash, aprendeu a nadar; Pá, Pá, Aprendeu a Andar</p>
+    <p class="T">Uma Melancia Gorda Gorda Gorda</p>
+    <p class="T">Que queria o mundo conquistar</p>
+    <p class="T">E para isso conseguir,</p>
+    <p class="T"> Blá, Blá, aprendeu a falar; Splash, Splash, Aprendeu a Nadar; Pá Pá, Aprendeu a Andar</p>
+    <p class="P">Contribuidor: Lucas Fronza</p>
+    
+</div>
+</main>  
+</body>
+<!-- 
+    <h2 class='N'>Como Formatar sua Música</h2><p class='T'>Use a tag <b>&lt;p class='T'&gt;</b> para o parágrafo normal</p><p class='T'>Use a tag <b>&lt;h2 class='N'&gt;</b> para o Título/Nome da sua música.</p> <p class='T'>Use a tag <b>&lt;p class ='P'&gt;</b> para escrever o nome do contribuidor.</p><p class='T'>Não esqueça de terminar todas as suas tags com <b>&lt;/p&gt; ou &lt;/h2&gt;, assim elas irão funcionar corretamente.</b></p><p class='T'>Use uma nova tag <b>&lt;p&gt;</b> caso você queira criar mais parágrafos, e a use a tag <b>&lt;br&gt;</b> para uma quebra de linha.</p><p class='P'>Entre em Contato: lucasayrosofronza@gmail.com, com o assunto R.M.E para eu achar mais fácil ;)</p> 
+-->
+<!--
+    &lt;h2 class="N"&gt;Escreva uma música para ser adicionada.&lt;/h2&gt; &lt;p class="T"&gt; &lt;b&gt; Ela será visível apenas para você, e ela está salva no seu navegador.&lt;/b&gt;&lt;/p&gt; &lt;p class="P"&gt;lucasayrosofronza@gmail.com&lt;/p&gt;
+-->
+</html>
+
+<script>
+
+document.getElementById("musicalocal").innerHTML = localStorage.getItem("mlocal")
+
+function Excluir(item) {
+
+    if (confirm("Deseja excluir?")) {
+        document.getElementById("musicalocal").innerHTML = "<p class='T'>Sua música foi excluida...</p>"
+        localStorage.removeItem(item);
+    } 
+    else {
+        alert("Sua música está a salvo");
+    }
+    
+}
+
+function Escrever() {
+    let titulo = document.getElementById("titulo").value;
+    let corpo = document.getElementById("areatexto").value;
+    let pessoa = document.getElementById("contribuidor").value;
+
+    localStorage.setItem('mlocal','<h2 class="N">' + titulo + '</h2>' + '<p class="T">' + corpo + '</p>' + '<p class="P">' + pessoa + '</p>')
+    document.getElementById('musicalocal').innerHTML = localStorage.getItem('mlocal');
+}
+
+function EscreverP() {
+    document.getElementById("musicalocal").innerHTML = 
+    "<h2 class='N'>Como Formatar sua Música</h2><p class='T'>Utilize a tag <b>&lt;p class='T'&gt;</b> para criar novos parágrafos dentro da área de texto do <b>Corpo.</b></p><p class='T'>Utilize a tag <b>&lt;br&gt;</b> para criar quebras de linha.</p><p class='T'>Você também pode usar a tag <b>&lt;b&gt;</b> para adicionar negrito ao seu texto.</p><p class='T'> Não se esqueça de terminar suas tags com um fechamento, por exemplo: <b>&lt;/b&gt;,&lt;/p&gt</b>. Apenas a tag <b>&lt;br&gt;</b> não necessita de fechamento.</p><p class='P'>Entre em Contato! lucasayrosofronza@gmail.com ;)</p>";
+}
+
+function Variacao(vari,mus) {
+    cosole.log(mus + vari);
+    if (mus === "1") {
+        if (vari === '1') {
+            document.getElementById("texto").innerHTML = "Variação Uno"
+        }
+        if (vari === '2') {
+            document.getElementById("texto").innerHTML = "Variação Dos"
+        }
+        if (isNaN(vari)) {
+            document.getElementById("texto").innerHTML = "Isso é um erro no sistema de variações, Por Favor, entre em contato para informar o erro: lucasayrosofronza@gmail.com"
+        }
+    }
+
+        if (isNaN(mus)) {
+            alert("Isso é um erro no sistema de variações, Por Favor, entre em contato para informar o erro: lucasayrosofronza@gmail.com");
+        }
+}
+
+function ModoEscuro() {
+    document.documentElement.style.setProperty('--cor-fundo', '#504c49');
+    document.documentElement.style.setProperty('--cor-titulo', '#DCD7C9');
+    document.documentElement.style.setProperty('--cor-texto', '#eae6db');
+    document.documentElement.style.setProperty('--cor-sutil', '#7b7763');
+    document.documentElement.style.setProperty('--cor-contraste-corpo','#564b43');
+    document.documentElement.style.setProperty('--cor-contraste', '#2C3639');
+    document.documentElement.style.setProperty('--cor-contraste-contraste', '#1f2628');
+
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoClaro()''><img src='Assets/Sol.png'></button>";
+}
+
+function ModoClaro() {
+    document.documentElement.style.setProperty('--cor-fundo', '#F0EBCE');
+    document.documentElement.style.setProperty('--cor-titulo', '#AA8B56');
+    document.documentElement.style.setProperty('--cor-texto', '#b5996a');
+    document.documentElement.style.setProperty('--cor-sutil','#ebe4bd');
+    document.documentElement.style.setProperty('--cor-contraste-corpo','#ebe3ad');
+    document.documentElement.style.setProperty('--cor-contraste', '#4E6C50');
+    document.documentElement.style.setProperty('--cor-contraste-contraste','#395144');
+    
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoEscuro()''><img src='Assets/Lua.png'></button>"
+}
+
+//
+</script>
+

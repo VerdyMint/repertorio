@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="shortcut icon" href="Assets/Símbolo Escoteiro.png" type="image/x-icon" />
+    <title>Repertório de Músicas Escoteiras</title>
+</head>
+<body>
+<header class="Cabecalho">
+<a class="Atalho_do_Cabecalho" href="index.html">Home</a>
+<a class="Atalho_do_Cabecalho" href="Repositório.html">Repertório</a>
+<span id="Botao"><button class="Modo" onclick="ModoEscuro()"><img src="Assets/Lua.png"></button></span>
+
+</header>
+<main class="Principal">
+    <section class="Conteudo">
+        <h1 class="Titulo">Repertório de Músicas Escoteiras</h1>
+        <noscript><p class="Pri_Texto" style="font-size: 2rem;"><b>Esse Site Usa JavaScript! Algumas Funções Não Funcionarão sem JavaScript.</b></p></noscript>
+        <p class="Pri_Texto"> Boas vindas a coleção de músicas escoteiras. Criado para a especialidade de programação.</p>
+        <img src="Assets/Escoteiro.png" alt="Imagem Placeholder" class="Imagem">
+    </section>
+    
+    <section class="Conteudo">
+        <h2 class="SubTitulo">Sobre</h2>
+        <p class="Sob_Texto">Esse site busca armazenar as músicas em um lugar, e variações também. Caso você tenha uma música, escreva um email sobre com um print do site com a música local que você quer que eu adicione. </p> 
+        <button class="Sob_Texto" onclick="Copiar('lucasayrosofronza@gmail.com')" style='background-color: var(--cor-contraste-corpo); border: 0px; border-radius: 10px; padding: 0.5%;'><b>lucasayrosofronza@gmail.com</b></button>
+        <span id="Copiado"></span>
+    </section>
+</main>
+    
+<footer>
+
+</footer>
+</body>
+</html>
+<script>
+
+function ModoEscuro() {
+    document.documentElement.style.setProperty('--cor-fundo', '#504c49');
+    document.documentElement.style.setProperty('--cor-titulo', '#DCD7C9');
+    document.documentElement.style.setProperty('--cor-texto', '#eae6db');
+    document.documentElement.style.setProperty('--cor-sutil', '#7b7763');
+    document.documentElement.style.setProperty('--cor-contraste-corpo','#5b4a3e');
+    document.documentElement.style.setProperty('--cor-contraste', '#2C3639');
+    document.documentElement.style.setProperty('--cor-contraste-contraste', '#1f2628');
+
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoClaro()''><img src='Assets/Sol.png'></button>";
+}
+
+function ModoClaro() {
+    document.documentElement.style.setProperty('--cor-fundo', '#F0EBCE');
+    document.documentElement.style.setProperty('--cor-titulo', '#AA8B56');
+    document.documentElement.style.setProperty('--cor-texto', '#b5996a');
+    document.documentElement.style.setProperty('--cor-sutil','#ebe4bd');
+    document.documentElement.style.setProperty('--cor-contraste-corpo','#ebe3ad');
+    document.documentElement.style.setProperty('--cor-contraste', '#4E6C50');
+    document.documentElement.style.setProperty('--cor-contraste-contraste','#395144');
+    
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoEscuro()''><img src='Assets/Lua.png'></button>"
+}
+
+function Copiar(text) {
+  navigator.clipboard.writeText(text);
+  document.getElementById("Copiado").innerHTML = "<p class=Sob_Texto><b>Copiado!</b></p>";
+}
+</script>

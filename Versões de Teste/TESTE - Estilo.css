@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Roboto+Condensed:wght@400;700&display=swap');
+:root {
+--cor-fundo: #F0EBCE;
+--cor-titulo: #AA8B56;
+--cor-texto: #b5996a;
+--cor-contraste: #4E6C50;
+--cor-contraste-corpo: #ebe3ad;
+--cor-sutil: #ebe4bd;
+--fonte-titulo: "Delicious Handrawn", sans-serif;
+--fonte-principal: "Roboto Condensed", sans-serif;
+--cor-contraste-contraste: #395144;
+
+/* Apenas para editar as Cores */
+--COLOR-PICKER: #1f2628;
+
+}
+
+/* 
+
+Palheta Clara - https://colorhunt.co/palette/3951444e6c50aa8b56f0ebce
+
+Verde Bem Escuro: #395144
+Verde Escuro: #4E6C50
+Marrom: #AA8B56
+Bege: #F0EBCE
+
+Palheta Escura - https://colorhunt.co/palette/2c36393f4e4fa27b5cdcd7c9
+
+Cinza Bem Escuro: #2C3639
+Cinza Escuro: #3F4E4F
+Marrom: #A27B5C
+Bege: #DCD7C9
+
+
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+
+.Cabecalho {
+    display: flex;
+    gap: 5%;
+    padding: 1% 2%;
+    align-items: center;
+    background-color: var(--cor-contraste);
+    font-family: var(--fonte-principal);
+}
+
+.Atalho_do_Cabecalho {
+    text-decoration: none;
+    color: var(--cor-contraste-contraste);
+    font-size: 2rem;
+}
+
+.Modo {
+background-color: transparent;
+border: 0px;
+cursor: pointer;
+}
+
+.Principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7% 5%;
+    text-align: center;  
+    gap: 30px;
+}
+
+.Conteudo {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.Titulo {
+    font-family: var(--fonte-titulo) ;
+    font-size: 5rem;
+    color: var(--cor-titulo);
+}
+
+.Pri_Texto {
+    font-family: var(--fonte-principal);
+    font-size: 2rem;
+    color: var(--cor-texto);
+}
+
+.Imagem {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.Sobre {
+    display: flex;
+    padding: 7% 5%;
+}
+
+.SubTitulo {
+    font-family: var(--fonte-titulo) ;
+    font-size: 3rem;
+    color: var(--cor-titulo);
+}
+
+.Sob_Texto {
+    font-family: var(--fonte-principal);
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+}
+
+/* Página 2 */
+
+.AreaTexto1 {
+    padding: 2% 0% 1% 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    
+}
+
+label {
+    padding: 0.5%;
+}
+
+.InputTexto {
+    background-color: var(--cor-contraste-corpo);
+    border-radius: 8px;
+    border: 0px;
+    width: 350px;
+    height: 10px;
+    padding: 10px 10px;
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    font-size: 1rem;
+}
+
+.AreaTexto2 {
+    background-color: var(--cor-contraste-corpo);
+    border-radius: 10px;
+    border: 0px;
+    width: 350px;
+    height: 150px;
+    max-width: 500px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 100px;
+    padding: 10px 10px;
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    font-size: 1rem;
+}
+
+.BotoesEditar {
+    padding: 1% 3%;
+}
+
+.Adicionar {
+    padding: 1% 1%;
+    border-radius: 10px;
+    border: 0px;
+    background-color: var(--cor-contraste-corpo);
+    transition: ease-in-out 50ms;
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+}
+
+.Adicionar:hover {
+    border-radius: 20px;
+}
+
+.MusicaLocal {
+    padding: 5% 5%;
+    background-color: var(--cor-contraste-corpo);
+}
+
+.Musica {
+    padding: 5% 5%;
+}
+
+.N {
+    color: var(--cor-titulo);
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.T {
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    color: var(--cor-texto);
+}
+
+.P {
+    font-family: var(--fonte-principal);
+    font-size: 0.7rem;
+    color: var(--cor-texto);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+
+/* Barra de Scrool */
+
+::-webkit-scrollbar {
+    background-color: var(--cor-contraste);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-contraste-contraste);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--cor-contraste);
+    border: 0px;
+}
