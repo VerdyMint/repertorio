@@ -10,10 +10,9 @@
 </head>
 <body>
 <header class="Cabecalho">
-<a class="Atalho_do_Cabecalho" href="index.html">Home</a>
-<a class="Atalho_do_Cabecalho" href="Repositório.html">Repertório</a>
-<span id="Botao"><button class="Modo" onclick="ModoEscuro()"><img src="Assets/Lua.png"></button></span>
-
+<a class="AtalhoCabecalho" href="index.html">Home</a>
+<a class="AtalhoCabecalho" href="Repositório.html">Repertório</a>
+<span id="Botao"><button class="Modo" onclick="ModoEscuro()"><img class='md' src="Assets/Lua.png"></button></span>
 </header>
 <main class="Principal">
     <section class="Conteudo">
@@ -22,11 +21,10 @@
         <p class="Pri_Texto"> Boas vindas a coleção de músicas escoteiras. Criado para a especialidade de programação.</p>
         <img src="Assets/Escoteiro.png" alt="Imagem Placeholder" class="Imagem">
     </section>
-    
     <section class="Conteudo">
         <h2 class="SubTitulo">Sobre</h2>
         <p class="Sob_Texto">Esse site busca armazenar as músicas em um lugar, e variações também. Caso você tenha uma música, escreva um email sobre com um print do site com a música local que você quer que eu adicione. </p> 
-        <button class="Sob_Texto" onclick="Copiar('lucasayrosofronza@gmail.com')" style='background-color: var(--cor-contraste-corpo); border: 0px; border-radius: 10px; padding: 0.5%;'><b>lucasayrosofronza@gmail.com</b></button>
+        <button class="Sob_Texto" onclick="Copiar('lucasayrosofronza@gmail.com','Copiado')" style='background-color: var(--cor-contraste-corpo); border: 0px; border-radius: 10px; padding: 0.5%;'><b>lucasayrosofronza@gmail.com</b></button>
         <span id="Copiado"></span>
     </section>
 </main>
@@ -37,17 +35,17 @@
 </body>
 </html>
 <script>
-
 function ModoEscuro() {
-    document.documentElement.style.setProperty('--cor-fundo', '#504c49');
+    document.documentElement.style.setProperty('--cor-fundo', '#2C3639');
     document.documentElement.style.setProperty('--cor-titulo', '#DCD7C9');
     document.documentElement.style.setProperty('--cor-texto', '#eae6db');
     document.documentElement.style.setProperty('--cor-sutil', '#7b7763');
-    document.documentElement.style.setProperty('--cor-contraste-corpo','#5b4a3e');
-    document.documentElement.style.setProperty('--cor-contraste', '#2C3639');
-    document.documentElement.style.setProperty('--cor-contraste-contraste', '#1f2628');
+    document.documentElement.style.setProperty('--cor-contraste-corpo','#1f2628');
+    // document.documentElement.style.setProperty('--cor-contraste', '#2C3639');
+    // document.documentElement.style.setProperty('--cor-contraste-contraste', '#1f2628');
 
-    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoClaro()''><img src='Assets/Sol.png'></button>";
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoClaro()''><img class='md' src='Assets/Sol.png'></button>";
+    console.log('Modo Escuro');
 }
 
 function ModoClaro() {
@@ -56,14 +54,17 @@ function ModoClaro() {
     document.documentElement.style.setProperty('--cor-texto', '#b5996a');
     document.documentElement.style.setProperty('--cor-sutil','#ebe4bd');
     document.documentElement.style.setProperty('--cor-contraste-corpo','#ebe3ad');
-    document.documentElement.style.setProperty('--cor-contraste', '#4E6C50');
-    document.documentElement.style.setProperty('--cor-contraste-contraste','#395144');
+    // document.documentElement.style.setProperty('--cor-contraste', '#4E6C50');
+    // document.documentElement.style.setProperty('--cor-contraste-contraste','#395144');
     
-    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoEscuro()''><img src='Assets/Lua.png'></button>"
+    document.getElementById("Botao").innerHTML = "<button class='Modo' onclick='ModoEscuro()''><img class='md' src='Assets/Lua.png'></button>"
+    console.log('Modo Claro');
 }
 
-function Copiar(text) {
+function Copiar(text,span) {
   navigator.clipboard.writeText(text);
-  document.getElementById("Copiado").innerHTML = "<p class=Sob_Texto><b>Copiado!</b></p>";
+  document.getElementById(span).innerHTML = "<p class=Sob_Texto><b>Copiado!</b></p>";
+  console.log('Texto Copiado: ' + text);
+  console.log('Texto foi Alterado. ID: ' + span);
 }
 </script>
